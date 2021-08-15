@@ -1,6 +1,16 @@
 function mostrar()
 {
-	alert("ok");
+	
+	for (let i =0 ;i<5 ;i++)
+	{
+		alert(i);
+	
+		if (i ==4)
+		{
+			break;
+		}
+		
+	}
 
 
 

@@ -12,18 +12,65 @@ hasta que el usuario quiera, mostrar:
 9-Diferencia entre positivos y negativos, (positvos-negativos). */
 function mostrar()
 {
-	//declarar contadores y variables 
-	var respuesta;
-	var numeroIngresado;
-	var sumaNegativos=0;
+	//declarar contadores y letiables 
+	let respuesta;
+	let numeroIngresado;
+	let sumaNegativos = 0;
+	let sumaPositivos = 0;
+	let contadorPositivos = 0;
+	let contadorNegativos = 0;
+	let contadorCeros = 0;
+	let contadorPares = 0;
+	let promedioPositivos = 0;
+	let promedioNegativos = 0;
+	let diferencia;
 
 	respuesta="si";
 
-	while(respuesta=="si")
-	{
+	do {
 		
-		respuesta=prompt("desea continuar?");
-	}//fin del while
+		numeroIngresado=parseInt(prompt("Ingresar numero"));
+		
+		if (numeroIngresado<0)
+		{
+			contadorNegativos++;
+           sumaNegativos += numeroIngresado;
+		}
+		else if (numeroIngresado ==0)
+		{
+			contadorCeros++;
+		}
+		else 
+		{
+			contadorPositivos++;
+			sumaPositivos += numeroIngresado;
+		}
+        if (numeroIngresado %2==0)
+		{
+			contadorPares++;
+		}
 
-	document.write("la suma de negativos es :"+sumaNegativos);
+      respuesta =prompt("desea ingresar otro numero?");
+	} while (respuesta =="si");
+
+   if (contadorPositivos>0)
+   {
+	   promedioPositivos = sumaPositivos /contadorPositivos;
+   }
+   if (contadorNegativos>0)
+   {
+	    promedioNegativos = sumaNegativos / contadorNegativos;  
+   }
+   
+   diferencia = contadorPositivos - contadorNegativos;
+
+	document.write("la suma de negativos es : "+sumaNegativos+"<br>");
+	document.write("la suma de positivos es : "+sumaPositivos+"<br>");
+	document.write("la cantidad de negativos es : "+contadorNegativos+"<br>");
+	document.write("la cantidad de positivos es : "+contadorPositivos+"<br>");
+	document.write("la cantidad de ceros es : "+contadorCeros+"<br>");
+	document.write("la cantidad de numeros pares es : "+contadorPares+"<br>");
+	document.write("el promedio de positivos es : "+promedioPositivos+"<br>");
+	document.write("el promedio de negativos es : "+promedioNegativos+"<br>");
+	document.write("la diferencia es : "+diferencia+"<br>");
 }//FIN DE LA FUNCIÓN
